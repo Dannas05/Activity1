@@ -28,7 +28,7 @@ export default function App() {
        placeholder= "Surname"
        onChangeText={newText => setSurname(newText)}/>
         </View>
-       <Button title = "Add user" onPress={() => {console.log("The user's name and surname is:" + Name + "Surname:" + Surname)}}/>
+       <Button title = "Add user" onPress={() => {console.log("The user's name and surname is:" + Name + "Surname:" + Surname )}}/>
        <StatusBar style="auto" />
       
       </View>
