@@ -1,12 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
 import { SectionList, StyleSheet, Text, TextInput, View , Button,Image } from 'react-native';
 import { useState} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack= createNativeStackNavigator();
  
 export default function App() {
+  return(
+    <NavigationContainer>
+       <Stack.Navigator>
+          <Stack.Screen name="Home" component={MainScreen}/>
+          <Stack.Screen name="VeiwDetails" component={VeiwDetails}/>
+       </Stack.Navigator>
+    </NavigationContainer>
+
+
+  )
+}
+
+
+export  function MainScreen() {
   const[Name,setName] = useState('')
   const[Surname,setSurname] = useState('')
   console.log("App starting up now.")
   return (
+    
     <View>
 
       <View style={styles.mainPicture}> 
@@ -32,8 +51,18 @@ export default function App() {
        <StatusBar style="auto" />
       
       </View>
+      
   );
 }
+
+function VeiwDetails(){
+  return(
+    <View style = {{flex: 1, allignItems: 'center', justifyContent: 'center'}}>
+      <Text>Name : ### Surname: #####</Text>
+    </View>
+  )
+}
+
 
 const styles = StyleSheet.create({
   welcomeText: {
