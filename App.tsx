@@ -11,7 +11,7 @@ export default function App() {
     <NavigationContainer>
        <Stack.Navigator>
           <Stack.Screen name="Home" component={MainScreen}/>
-          <Stack.Screen name="VeiwDetails" component={VeiwDetails}/>
+          <Stack.Screen name="ViewDetails" component={ViewDetails}/>
        </Stack.Navigator>
     </NavigationContainer>
 
@@ -20,7 +20,8 @@ export default function App() {
 }
 
 
-export  function MainScreen() {
+function MainScreen() {
+  
   const[Name,setName] = useState('')
   const[Surname,setSurname] = useState('')
   console.log("App starting up now.")
@@ -55,10 +56,13 @@ export  function MainScreen() {
   );
 }
 
-function VeiwDetails(){
+function ViewDetails({navigation,route}:any){
+  const NameGet = route.params.NameSend ; 
+  const SurnameGet = route.params.SunameSend;
+
   return(
-    <View style = {{flex: 1, allignItems: 'center', justifyContent: 'center'}}>
-      <Text>Name : ### Surname: #####</Text>
+    <View style = {{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Name : {NameGet} Surname: {SurnameGet}</Text>
     </View>
   )
 }
